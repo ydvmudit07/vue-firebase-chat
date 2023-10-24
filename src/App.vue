@@ -3,7 +3,7 @@
   
 
   <script setup>
-    import app from './db';
+    import db   from './db';
     import { reactive, ref, onMounted } from 'vue'
 
     const usernameInput = ref("")
@@ -25,7 +25,7 @@
     }
 
     const sendMessage = () => {
-      const messagesRef = app.database().ref("messages");
+      const messagesRef = db.database().ref("messages");
 
       if (messageInput.value === '' || messageInput.value === null) {
         return
