@@ -10,8 +10,13 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@headlessui/vue": "^1.7.16",
+    "@heroicons/vue": "^2.0.18",
+    "@mui/material": "^5.14.15",
+    "@mui/styled-engine-sc": "^6.0.0-alpha.3",
     "@radix-ui/themes": "^2.0.0",
     "firebase": "^10.5.0",
+    "styled-components": "^6.1.0",
     "vue": "^3.3.4"
   },
   "devDependencies": {

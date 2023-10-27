@@ -3,10 +3,10 @@
   
 
   <script setup>
-    import { collection, addDoc, onSnapshot, query, orderBy } from 'firebase/firestore';
-    import db from './db';
+    import { collection, addDoc, onSnapshot, query, orderBy } from 'firebase/firestore'
     import { reactive, ref, onMounted } from 'vue'
     import '@radix-ui/themes/styles.css';
+    import db from './db';
     
     const usernameInput = ref("")
     const messageInput = ref("")
@@ -76,7 +76,7 @@
     </div>
     <div v-else>
         <header>
-          <h1>MooChat</h1>
+          <p>MooChat</p>
           <p>Hello, {{ state.username }}</p>
           <button @click="logout">Logout</button>
         </header><br>
