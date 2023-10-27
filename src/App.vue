@@ -6,7 +6,8 @@
     import { collection, addDoc, onSnapshot, query, orderBy } from 'firebase/firestore';
     import db from './db';
     import { reactive, ref, onMounted } from 'vue'
-
+    import '@radix-ui/themes/styles.css';
+    
     const usernameInput = ref("")
     const messageInput = ref("")
     const state = reactive({
