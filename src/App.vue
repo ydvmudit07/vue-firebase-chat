@@ -3,7 +3,7 @@
   
 
   <script setup>
-    import { collection, addDoc, onSnapshot } from 'firebase/firestore';
+    import { collection, addDoc, onSnapshot, query, orderBy } from 'firebase/firestore';
     import db from './db';
     import { reactive, ref, onMounted } from 'vue'
 
@@ -35,6 +35,7 @@
       const message = {
         username: state.username,
         content: messageInput.value,
+        sentAt: new Date()
       }
 
       messageInput.value = ''
@@ -49,8 +50,9 @@
 
     onMounted(() => {
       const messagesRef = collection(db, 'messages');
+      const q = query(messagesRef, orderBy('sentAt', 'asc'));
 
-      onSnapshot(messagesRef, (snapshot) => {
+      onSnapshot(q, (snapshot) => {
         const messages = [];
         snapshot.docs.forEach((doc) => {
           messages.push({
