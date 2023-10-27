@@ -3,7 +3,8 @@
   
 
   <script setup>
-    import db   from './db';
+    import { collection, addDoc, onSnapshot } from 'firebase/firestore';
+    import db from './db';
     import { reactive, ref, onMounted } from 'vue'
 
     const usernameInput = ref("")
@@ -25,7 +26,7 @@
     }
 
     const sendMessage = () => {
-      const messagesRef = db.database().ref("messages");
+      const messagesRef = collection(db, "messages");
 
       if (messageInput.value === '' || messageInput.value === null) {
         return
@@ -36,28 +37,30 @@
         content: messageInput.value,
       }
 
-      messagesRef.push(message)
       messageInput.value = ''
+      addDoc(messagesRef, message)
+        .then(() => {
+          messageInput.value = '';
+        })
+        .catch((error) => {
+          console.error('Error adding message: ', error);
+      });
     }
 
-    // onMounted(() => {
-    //   const messagesRef = app.database().ref("messages");
+    onMounted(() => {
+      const messagesRef = collection(db, 'messages');
 
-    //   messagesRef.on('value', snapshot => {
-    //     const data = snapshot.val();
-    //     let messages = [];
-
-    //     Object.keys(data).forEach(key => {
-    //       messages.push({
-    //         id: key,
-    //         username: data[key].username,
-    //         content: data[key].content
-    //       });
-    //     });
-
-    //     state.messages = messages;
-    //   });
-    // });
+      onSnapshot(messagesRef, (snapshot) => {
+        const messages = [];
+        snapshot.docs.forEach((doc) => {
+          messages.push({
+            id: doc.id,
+            ...doc.data(),
+          });
+        });
+        state.messages = messages;
+      });
+    });
 
   </script>
 
@@ -75,12 +78,12 @@
           <button @click="logout">Logout</button>
         </header><br>
 
-        <!-- <section>
+        <section>
           <div v-for="message in state.messages" :key="message.id" :class="(message.username == state.username ? 'message current-user' : 'message')">
             <div>{{ message.username }}</div>
             <div>{{ message.content }}</div>
           </div>
-        </section> -->
+        </section>
 
         <footer>
           <form @submit.prevent="sendMessage">

@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import "firebase/database"
 import { initializeApp } from "firebase/app";
-import { getFirestore } from 'firebase/firestore'
+import { getFirestore, addDoc, collection } from 'firebase/firestore'
 
 // import { addDoc } from "firebase/firestore";
 // Import the functions you need from the SDKs you need
@@ -21,13 +21,5 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-
-// const messageDocs = collection(db, 'messages')
-// const messageDoc = doc(db, 'messages', 'message-id')
-
-// await addDoc(messageDocs, {
-//   message: "Tokyo",
-//   sentAt: Timestamp.now()
-// });
 
 export default db;
