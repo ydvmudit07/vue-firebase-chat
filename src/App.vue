@@ -92,9 +92,9 @@
               Chat with the MooSquad
             </div>
           </div>
-        <form @submit.prevent="login" class="flex flex-row">
-          <input v-model="usernameInput" placeholder="Enter your username..." type="text" class="bg-gray-900 w-64 h-10 text-white border-gray-300 rounded-lg rounded-r-none"/>
-          <input class="text-white h-10 w-36 border rounded-r-lg border-gray-300" type="submit" value="Let's Chat" @click="login"/>
+        <form @submit.prevent="login" class="flex flex-row w-[32.5rem] gap-5">
+          <input id="email-address" v-model="usernameInput" type="text" autocomplete="text" required="" class="min-w-0 h-12 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-lg sm:leading-6" placeholder="Enter your username..." />
+          <button type="submit" @click="login" class="flex-none rounded-md bg-indigo-500 px-3.5 py-2.5 text-ld font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">Let's Chat</button>
         </form>
         <div class="mt-32 flex justify-center"><img class="h-10 w-10 cursor-pointer bouncing-image" src="arrow.svg" @click="scrollToHeaderBox"/></div>
       </div>

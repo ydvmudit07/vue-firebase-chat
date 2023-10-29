@@ -29,14 +29,14 @@
                 <CalendarDaysIcon class="h-6 w-6 text-white" aria-hidden="true" />
               </div>
               <dt class="mt-4 font-semibold text-white italic">Weekly articles</dt>
-              <dd class="mt-2 leading-7 text-gray-400">Curated moos, once a week. The Moosletter delivers our favorite features and community stories to your inbox each week.</dd>
+              <dd class="mt-2 leading-7 text-gray-400 w-[16rem]">Curated moos, once a week. The Moosletter delivers our favourite features and community stories to your inbox each week.</dd>
             </div>
             <div class="flex flex-col items-start">
               <div class="rounded-md bg-white/5 p-2 ring-1 ring-white/10">
                 <HandRaisedIcon class="h-6 w-6 text-white" aria-hidden="true" />
               </div>
               <dt class="mt-4 font-semibold text-white italic">No spam</dt>
-              <dd class="mt-2 leading-7 text-gray-400">Get weekly moos, not daily spams. Subscribe to our no-spam Moosletter for the best of MooChat.</dd>
+              <dd class="mt-2 leading-7 text-gray-400 w-[16rem]">Get weekly moos, not daily spams. Subscribe to our no-spam Moosletter for the best of MooChat.</dd>
             </div>
           </dl>
         </div>
