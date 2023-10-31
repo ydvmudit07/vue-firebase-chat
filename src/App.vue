@@ -95,7 +95,7 @@
           <input id="email-address" v-model="usernameInput" type="text" autocomplete="name" required="" class="min-w-0 h-10 sm:h-12 flex-auto rounded-md border-0 bg-white/5 px-3 sm:px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 text-base sm:text-lg sm:leading-6" placeholder="Enter your username..." />
           <button type="submit" @click="login" class="flex-none rounded-md bg-indigo-500 px-3 sm:px-3.5 py-2.5 text-base sm:text-lg font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">Let's Chat</button>
         </form>
-        <div class="mt-16 sm:mt-32 flex justify-center"><img class="h-10 w-10 cursor-pointer bouncing-image" src="arrow.svg" @click="scrollToHeaderBox"/></div>
+        <div class="mt-16 sm:mt-32 flex justify-center"><img class="h-10 w-10 cursor-pointer bouncing-image" src="./components/arrow.svg" @click="scrollToHeaderBox"/></div>
       </div>
       <HomeBox class="home-box"/> 
     </div>
