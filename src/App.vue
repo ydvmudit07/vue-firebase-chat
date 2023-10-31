@@ -8,10 +8,8 @@
     import '@radix-ui/themes/styles.css';
     import db from './db';
     
-    import Dashboard from './components/Dashboard.vue'
+    import DashboardHome from './components/DashboardHome.vue'
     import HomeBox from './components/HomeBox.vue'
-    import Newsletter from './components/Newsletter.vue';
-
     const usernameInput = ref("")
     const messageInput = ref("")
     const state = reactive({
@@ -83,20 +81,20 @@
 
   <template>
     <div v-if="state.username === '' || state.username === null">
-      <Dashboard/>
-      <div class="bg-gray-900 w-full h-[87vh] flex flex-col pl-16 pt-36">
-          <div class="text-white text-4xl font-sans pb-2 text-left italic">
-            <span class=" font-thin italic">Welcome to</span><br>
-            <span class="text-8xl font-semibold">MooChat</span>
-            <div class="text-white text-2xl text-thin pt-16 text-left">
-              Chat with the MooSquad
-            </div>
+      <DashboardHome/>
+      <div class="bg-gray-900 w-full sm:h-[87vh] flex flex-col pl-4 sm:pl-16 pt-36 sm:pt-36">
+        <div class="text-white text-2xl sm:text-4xl font-sans pb-2 text-left italic">
+          <span class="font-thin italic">Welcome to</span><br>
+          <span class="text-6xl sm:text-8xl font-semibold">MooChat</span>
+          <div class="text-white text-lg sm:text-2xl text-thin pt-6 sm:pt-16 text-left">
+            Chat with the MooSquad
           </div>
-        <form @submit.prevent="login" class="flex flex-row w-[32.5rem] gap-5">
-          <input id="email-address" v-model="usernameInput" type="text" autocomplete="text" required="" class="min-w-0 h-12 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-lg sm:leading-6" placeholder="Enter your username..." />
-          <button type="submit" @click="login" class="flex-none rounded-md bg-indigo-500 px-3.5 py-2.5 text-ld font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">Let's Chat</button>
+        </div>
+        <form @submit.prevent="login" class="flex flex-col sm:flex-row w-[90vw] sm:w-[32.5rem] gap-2 sm:gap-5">
+          <input id="email-address" v-model="usernameInput" type="text" autocomplete="name" required="" class="min-w-0 h-10 sm:h-12 flex-auto rounded-md border-0 bg-white/5 px-3 sm:px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 text-base sm:text-lg sm:leading-6" placeholder="Enter your username..." />
+          <button type="submit" @click="login" class="flex-none rounded-md bg-indigo-500 px-3 sm:px-3.5 py-2.5 text-base sm:text-lg font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">Let's Chat</button>
         </form>
-        <div class="mt-32 flex justify-center"><img class="h-10 w-10 cursor-pointer bouncing-image" src="arrow.svg" @click="scrollToHeaderBox"/></div>
+        <div class="mt-16 sm:mt-32 flex justify-center"><img class="h-10 w-10 cursor-pointer bouncing-image" src="arrow.svg" @click="scrollToHeaderBox"/></div>
       </div>
       <HomeBox class="home-box"/> 
     </div>
@@ -107,6 +105,7 @@
 
     <div v-else>
         <header>
+          <!-- <DashboardChat/> -->
           <p>MooChat</p>
           <p>Hello, {{ state.username }}</p>
           <button @click="logout">Logout</button>
