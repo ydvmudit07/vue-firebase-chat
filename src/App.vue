@@ -1,6 +1,5 @@
   <!-- eslint-disable no-undef -->
   <!-- eslint-disable no-unused-vars -->
-  
 
   <script setup>
     import { collection, addDoc, onSnapshot, query, orderBy } from 'firebase/firestore'
@@ -9,7 +8,7 @@
     import db from './db';
     
     import DashboardHome from './components/DashboardHome.vue'
-    import DashboardChat from './components/DashboardCHat.vue'
+    import DashboardChat from './components/DashboardChat.vue'
     import HomeBox from './components/HomeBox.vue'
 
     const usernameInput = ref("")
@@ -135,8 +134,6 @@
             </form>
           </footer>
         </div>
-        <!-- <Modal/> -->
-        <Testimonial/>
 
     </div>
   </template>
